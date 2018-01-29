@@ -35,6 +35,13 @@ Das Backend kann mit [Eclipse Oxygen](http://www.eclipse.org/downloads/download.
 
 Das Frontend wird mit [Visual Studio Code](https://code.visualstudio.com/download "Zum Download") entwickelt.
 
+Folgende Visual Studio Code Extensions sind empfohlen:
+*
+*
+*
+
+
+
 ## Backend - Durchstich
 Als Backend-Durchstich dient zur Zeit ein kleines REST Service. Dieses kann zur Zeit wie folgt gestartet werden:
 - im Eclipse: Dazu LottoServices Projekt im Eclipse importieren und dort `LottoApplication` Configuration ausführen
