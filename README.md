@@ -39,17 +39,7 @@ Folgende Software muss hierfür noch Installiert werden:
 * Yarn:  https://yarnpkg.com/en/docs/install
 
 * Bei win7 Proxy Config
-* Yarn configuration
- Use these commands:
 
-yarn config set proxy http://proxy.msg.de:3128
-yarn config set https-proxy https://proxy.msg.de:3128
-
-* NPM configuration
-Use these commands:
-
-npm config set proxy http://proxy.msg.de:3128
-npm config set https-proxy https://proxy.msg.de:3128
 
 
 Starten Hello World in VS-Code
