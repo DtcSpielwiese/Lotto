@@ -34,6 +34,22 @@ Es gelten dabei folgende Regeln:
 Das Backend kann mit [Eclipse Oxygen](http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/oxygen/2/eclipse-java-oxygen-2-win32-x86_64.zip "Zum Download") oder auch mit [Visual Studio Code](https://code.visualstudio.com/download "Zum Download") entwickelt werden. Damit das Backend mit `Visual Studio Code` lauffähig ist muss [Java Extension Pack](https://code.visualstudio.com/docs/java/extensions "Zum Download") für VS Code installiert werden.
 
 Das Frontend wird mit [Visual Studio Code](https://code.visualstudio.com/download "Zum Download") entwickelt.
+Folgende Software muss hierfür noch Installiert werden:
+* NodeJS https://nodejs.org/dist/v9.4.0/node-v9.4.0-x64.msi
+* Yarn:  https://yarnpkg.com/en/docs/install
+
+Installation Yarn:
+* MSI Installieren
+
+
+Starten Hello World in VS-Code
+* automatischer Build: yarn webpack -- --watch
+* starten webpack Server: yarn webpack-dev-server
+
+Noch Obsolet:
+Installation von WebPack:
+* yarn add --dev webpack webpack-dev-server
+
 
 Folgende Visual Studio Code Extensions sind empfohlen:
 *
