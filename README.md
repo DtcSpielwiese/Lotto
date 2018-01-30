@@ -35,17 +35,21 @@ Das Backend kann mit [Eclipse Oxygen](http://www.eclipse.org/downloads/download.
 
 Das Frontend wird mit [Visual Studio Code](https://code.visualstudio.com/download "Zum Download") entwickelt.
 Folgende Software muss hierfür noch Installiert werden:
-* NodeJS https://nodejs.org/dist/v9.4.0/node-v9.4.0-x64.msi
-* Yarn:  https://yarnpkg.com/en/docs/install
-
-* Bei win7 Proxy Config
+* [NodeJS](https://nodejs.org/dist/v9.4.0/node-v9.4.0-x64.msi)
+* [Yarn](https://yarnpkg.com/latest.msi)
+* Bei Windows 7 Proxy ggf. setzen / Befehle ausführen: 
+* `yarn config set proxy http://proxy:3128`
+* `yarn config set https-proxy http://proxy:3128`
+* `npm config set proxy http://proxy:3128`
+* `npm config set https-proxy http://proxy:3128`
+* Prüfe darauf hin die Dateien `c:\Users\xxxx\.npmrc` und `c:\Users\xxxx\.yarnrc` bzw. `yarn config list`
 
 
 
 Starten Hello World in VS-Code
-* im Unterordner helloWorld "yarn install" aufrufen
-* automatischer Build: yarn webpack -- --watch
-* starten webpack Server: yarn webpack-dev-server
+* Im Unterordner helloWorld `yarn install` aufrufen
+* Automatischer Build: `yarn webpack -- --watch`
+* Starten des Servers: `yarn webpack-dev-server`
 
 Noch Obsolet:
 Installation von WebPack:
