@@ -38,11 +38,22 @@ Folgende Software muss hierfür noch Installiert werden:
 * NodeJS https://nodejs.org/dist/v9.4.0/node-v9.4.0-x64.msi
 * Yarn:  https://yarnpkg.com/en/docs/install
 
-Installation Yarn:
-* MSI Installieren
+* Bei win7 Proxy Config
+* Yarn configuration
+ Use these commands:
+
+yarn config set proxy http://proxy.msg.de:3128
+yarn config set https-proxy https://proxy.msg.de:3128
+
+* NPM configuration
+Use these commands:
+
+npm config set proxy http://proxy.msg.de:3128
+npm config set https-proxy https://proxy.msg.de:3128
 
 
 Starten Hello World in VS-Code
+* im Unterordner helloWorld "yarn install" aufrufen
 * automatischer Build: yarn webpack -- --watch
 * starten webpack Server: yarn webpack-dev-server
 
