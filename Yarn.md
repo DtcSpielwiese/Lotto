@@ -1,7 +1,7 @@
 # Yarn Kommandos
 
 ## Start eines neuen Projektes
-Dieser Befehl wird initial bei erstellung eines neun Projektes benötigt um die 'package.json' zu erstellen. 
+Dieser Befehl wird initial bei Erstellung eines neuen Projektes benötigt um die 'package.json' zu erstellen. 
 ```
 yarn init
 
@@ -19,18 +19,18 @@ question private:
 success Saved package.json
 ```
 
-durch den Parameter '-y' kann dies Übersprungen werden und es wird eine dafault 'package.json' angelegt.
+durch den Parameter '-y' kann die Abfrage Übersprungen werden und es wird eine default 'package.json' angelegt.
 
-```
+```java
 yarn init -y
 
 ```
 
-## Adding a dependency
+## Hinzufügen von Abhängigkeit/Paketen
 ```
-yarn add [package]
-yarn add [package]@[version]
-yarn add [package]@[tag]
+yarn add package-name //installiert die "neuste" version eines Paket.
+yarn add package-name@1.2.3 installs a specific version of a package from the registry.
+yarn add package-name@tag installs a specific “tag” (e.g. beta, next, or latest).
 ```
 ## Adding a dependency to different categories of dependencies
 
