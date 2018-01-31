@@ -15,7 +15,7 @@ Mit diesem Beispielprojekt sollen folgende Technologien näher angeschaut werden
 * Dropwizard
 * NoSQL (MongoDb)
 
-## Umgang mit GIT
+# Umgang mit GIT
 Folgendes Bild beschreibt den Umgang mit dem GIT in diesem Projekt:
 
 ![GIT Branches](doc/git.png "GIT Branches")
@@ -30,40 +30,48 @@ Es gelten dabei folgende Regeln:
 3. Nach Beendigung der Aufgabe mergt (`git push`) der Entwickler seine Arbeiten in den `remotes/origin/develop` Branch zurück und erstellt einen Pull-Request
 
 
-## Entwicklungsumgebung
+# Entwicklungsumgebung
+
+## Eclipse
 Das Backend kann mit [Eclipse Oxygen](http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/oxygen/2/eclipse-java-oxygen-2-win32-x86_64.zip "Zum Download") oder auch mit [Visual Studio Code](https://code.visualstudio.com/download "Zum Download") entwickelt werden. Damit das Backend mit `Visual Studio Code` lauffähig ist muss [Java Extension Pack](https://code.visualstudio.com/docs/java/extensions "Zum Download") für VS Code installiert werden.
 
-Das Frontend wird mit [Visual Studio Code](https://code.visualstudio.com/download "Zum Download") entwickelt.
-Folgende Software muss hierfür noch Installiert werden:
+## Visual Studio Code
+Das Frontend wird mit [Visual Studio Code](https://code.visualstudio.com/download "Zum Download") entwickelt. Folgende Extensions, Packages und Tools sollten installiert werden.
+
+### Extensions:
+* [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+* [vscode-icons](https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons)
+* [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+* [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint)
+
+
+### Tools und Packages:
 * [NodeJS](https://nodejs.org/dist/v9.4.0/node-v9.4.0-x64.msi)
 * [Yarn](https://yarnpkg.com/latest.msi)
-* Bei Windows 7 Proxy ggf. setzen / Befehle ausführen: 
-* `yarn config set proxy http://proxy:3128`
-* `yarn config set https-proxy http://proxy:3128`
-* `npm config set proxy http://proxy:3128`
-* `npm config set https-proxy http://proxy:3128`
+#### Config
+Nach erfolgter Installation der Extensions und Tools bitte folgende Configuration durchführen.
+* Windows 7 ggf. Proxy setzen.
+Terminalbefehle: 
+```powershell
+yarn config set proxy http://[serverName]:3128
+yarn config set https-proxy http://[serverName]:3128
+npm config set proxy http://[serverName]:3128
+npm config set https-proxy http://[serverName]:3128
+```
 * Prüfe darauf hin die Dateien `c:\Users\xxxx\.npmrc` und `c:\Users\xxxx\.yarnrc` bzw. `yarn config list`
 
+### Global Packages:
+Installation der Global Packages in der Solution. Hierfür das Root-Projektverzeichniss im VS-Code öffnen und über das Terminal-Fesnter folgende Befehle ausführen:
+```powershell
+ yarn global add tslint 
+ yarn global add typescript
+ yarn global add @angular/cli
+ yarn install #als letzer Befehl um die Packages zu installieren
+```
 
+ ## [Erstellen und Starten einens neuen Angular Projektes](neuesProjekt.md) 
 
-Starten Hello World in VS-Code
-* Im Unterordner helloWorld `yarn install` aufrufen
-* Automatischer Build: `yarn webpack -- --watch`
-* Starten des Servers: `yarn webpack-dev-server`
-
-Noch Obsolet:
-Installation von WebPack:
-* yarn add --dev webpack webpack-dev-server
-
-
-Folgende Visual Studio Code Extensions sind empfohlen:
-*
-*
-*
-
-
-
-## Backend - Durchstich
+# Backend - Durchstich
 Als Backend-Durchstich dient zur Zeit ein kleines REST Service. Dieses kann zur Zeit wie folgt gestartet werden:
 - im Eclipse: Dazu LottoServices Projekt im Eclipse importieren und dort `LottoApplication` Configuration ausführen
 - im VS Code: Verzeichnis öffnen, `LottoApplication.java` im Editor öffnen `F5` zum Start der Applikation drücken.
