@@ -21,14 +21,14 @@ success Saved package.json
 
 durch den Parameter '-y' kann die Abfrage Übersprungen werden und es wird eine default 'package.json' angelegt.
 
-```java
+```ruby
 yarn init -y
 
 ```
 
 ## Hinzufügen von Abhängigkeit/Paketen
 ```
-yarn add package-name //installiert die "neuste" version eines Paket.
+yarn add [package-name] //installiert die "neuste" version eines Paket.
 yarn add package-name@1.2.3 installs a specific version of a package from the registry.
 yarn add package-name@tag installs a specific “tag” (e.g. beta, next, or latest).
 ```
