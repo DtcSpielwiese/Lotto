@@ -1,7 +1,7 @@
 # Docker 
 ## Installation des Dockers unter Windows
 
-1. [Docker Toolbox](https://github.com/docker/toolbox/releases) für Windows (aktuelle Version: `DockerToolbox-18.01.0-ce.exe`) runterladen und installieren. Sollte sich das Installationsprogramm "aufhängen", dann liegt es am Proxy. Internetverbindung ohne Proxy aufbauen und die Installation erneut probieren :-)
+1. [Docker Toolbox](https://github.com/docker/toolbox/releases)  für Windows (aktuelle Version: `DockerToolbox-18.01.0-ce.exe`) runterladen und installieren. Sollte sich das Installationsprogramm "aufhängen", dann liegt es am Proxy. Oflline gehen, oder Internetverbindung ohne Proxy aufbauen und die Installation erneut probieren :-)
 
 2. Diesen Schritt nur ausführen, falls Docker Toolbox mit Proxy genutzt wird. Ins Installationsverzeichnis gehen (i.d.R. `C:\Program Files\Docker Toolbox\`) und dort in der Datei `start.sh` ganz am Anfang die Proxy-Einstellungen eintragen:
 ```powershell
@@ -12,7 +12,10 @@ HTTPS_PROXY="http://proxy:3128"
 ...
 
 ```
-3. Jetzt kann zum ersten Mal der `Docker Quickstart Terminal` gestartet werden (Start > Alle Programme > Docker > Docker Quickstart Terminal). Bei diesem Start wird in der `Oracle VM VirtualBox` die Maschine `default` mit ggf. o.g. Proxy-Einstellungen angelegt.
+3. Jetzt kann zum ersten Mal der `Docker Quickstart Terminal` gestartet werden (Start > Alle Programme > Docker > Docker Quickstart Terminal - Bei Windows 10 - Bitte als Administrator ausführen!). Bei diesem Start wird in der `Oracle VM VirtualBox` die Maschine `default` mit ggf. o.g. Proxy-Einstellungen angelegt. Sollten hier Probleme auftreten, dann gibt es folgendes Workaround:
+ - Mit Schritt 5 weiter machen: In diesem Schritt wird die Maschine `default` ebenfalls angelegt, allerdings ohne Proxy!
+ - `Oracle VM VirtualBox` starten und die `default` Maschine löschen
+ - Mit Schritten 3 und 4 fortfahren
 
 4. Die Verifikation der Installation kann durch den Befehl `docker run hello-world` in dem Docker Terminal nachvollzogen werden. Es ist dann erfolgreich, wenn es bei diesem Befehl keine Fehler auftreten.
 
