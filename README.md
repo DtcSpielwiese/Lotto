@@ -83,3 +83,5 @@ Beim Starten der Applikation wird ein Jetty HTTP Server gestartet. Das Rest-Serv
 ## Docker
 Alle notwendige Infos zum Docker findest Du [hier](doc/docker.md).
 
+David H - Test
+
