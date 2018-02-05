@@ -20,7 +20,7 @@ Folgendes Bild beschreibt die Arbeitsweise mit GIT in diesem Projekt:
 
 ![GIT Branches](doc/git.png "GIT Branches")
 
-##Einrichtung & Konvetionen
+## Einrichtung & Konvetionen
 Es gelten folgende Regeln für die Arbeit mit GIT:
 1. Jeder Entwickler muss bei sich lokal den `develop` Branch auschecken.
   - installieren von [GIT - Windows Shell Interface](https://tortoisegit.org/download/)
