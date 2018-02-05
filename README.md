@@ -27,7 +27,7 @@ Einrichtung & Konvetionen - Es gelten folgende Regeln für die Arbeit mit GIT:
   - ausführen von 'Git Clone', um vom Remote-Repository ein lokales Abbild einzurichten
     - Auth-Daten zu individuellem Git-Konto
     - URL zum Remote-Repo (individuelles Git-Konto muss eingerichtet - also hinzugefügt und berechtigt - sein)
-    - bei Problemen zuerst prüfen, ob Proxy korrekt in den Git-Settings eingerichet ist (http://proxy.<Domain>.de:3128 - auch für https)
+    - bei Problemen zuerst prüfen, ob Proxy korrekt in den Git-Settings eingerichet ist (http://proxy.[Domain].de:3128 - auch für https)
   - ausführen von 'Git Switch', um vom 'master' zum 'develop' zu wechseln
 2. Die Entwicklung einer Aufgabe erfolgt immer in einem Feature.
   - der Feature-Branch ist immer von `remotes/origin/develop` abzuleiten
