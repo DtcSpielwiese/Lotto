@@ -39,6 +39,6 @@ Kitematic.exe
 4. Folgende Informationen nutzen, um mit einem Client gegen die gestartete DB zu verbinden - Adresse: `192.168.99.100:27020`, Authentication - Database: `admin`, Login: `admin`, Passwort: `admin`
 5. Das docker-container ist mit der Option `restart: always` eingerichtet, so das beim nächstmaligen Start des `Docker Quickstart Terminals` das entsprechende Container und somit auch die MongoDB automatisch gestartet werden.
 
-![MongoDB](mongodb.png "MongoDB")
+![MongoDB](../doc/mongodb.png "MongoDB")
 
 
