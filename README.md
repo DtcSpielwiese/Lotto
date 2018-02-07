@@ -20,20 +20,21 @@ Folgendes Bild beschreibt die Arbeitsweise mit GIT in diesem Projekt:
 
 ![GIT Branches](doc/git.png "GIT Branches")
 
-## Einrichtung & Konvetionen
+## Einrichtung & Konventionen
 Es gelten folgende Regeln für die Arbeit mit GIT:
 1. Jeder Entwickler muss bei sich lokal den `develop` Branch auschecken.
-  - installieren von [GIT - Windows Shell Interface](https://tortoisegit.org/download/)
-  - anlegen eines Projektordners
-  - ausführen von `Git Clone`, um vom Remote-Repository ein lokales Abbild einzurichten
+  - Installieren von [GIT - Windows Shell Interface](https://tortoisegit.org/download/)
+  - Nach der Installation auf der Kommando-Zeile folgenden Befehl ausführen `git config --global core.autocrlf false` -  Dieser Befehl sorgt dafür, dass beim Ein-/Auschecken der Dateien die Zeilenumbrüche nicht automatisch ins Windows-Format überführt werden. Weitere Infos dazu hier: https://git-scm.com/book/de/v1/Git-individuell-einrichten-Git-Konfiguration  
+  - Anlegen eines Projektordners
+  - Ausführen von `Git Clone`, um vom Remote-Repository ein lokales Abbild einzurichten
     - Auth-Daten zu individuellem Git-Konto
     - URL zum Remote-Repo (individuelles Git-Konto muss eingerichtet - also hinzugefügt und berechtigt - sein)
     - bei Problemen zuerst prüfen, ob Proxy korrekt in den Git-Settings eingerichet ist (etwa `http://proxy.domain.tld:3128` - auch für https)
-  - ausführen von `Git Switch`, um vom `master` zum `develop` zu wechseln
+  - Ausführen von `Git Switch`, um vom `master` zum `develop` zu wechseln
 2. Die Entwicklung einer Aufgabe erfolgt immer in einem Feature.
-  - der Feature-Branch ist immer von `remotes/origin/develop` abzuleiten
-  - als Name ist folgendes Muster zu verwenden: `feature/Ticket - Aufgabe`, z.B. `feature/LOTTO-10 - Integration Persistenzframework`
-  - soll das Feature anderen Entwicklern zur Verfügung gestellt werden, so ist dieses in das Remote-Repository zu übertragen - mittels Push wie folgt: `remotes/origin/feature/Ticket - Aufgabe`, z.B.: `remotes/origin/feature/LOTTO-10 - Integration Persistenzframework` 
+  - Der Feature-Branch ist immer von `remotes/origin/develop` abzuleiten
+  - Als Name ist folgendes Muster zu verwenden: `feature/Ticket - Aufgabe`, z.B. `feature/LOTTO-10 - Integration Persistenzframework`
+  - Soll das Feature anderen Entwicklern zur Verfügung gestellt werden, so ist dieses in das Remote-Repository zu übertragen - mittels Push wie folgt: `remotes/origin/feature/Ticket - Aufgabe`, z.B.: `remotes/origin/feature/LOTTO-10 - Integration Persistenzframework` 
   - ![GIT Branches](doc/create_feature.png "GIT Branches")
 3. Nach Beendigung der Aufgabe mergt (`git push`) der Entwickler seine Arbeiten in den `remotes/origin/develop` Branch zurück und erstellt einen Pull-Request.
 
