@@ -1,4 +1,5 @@
-#!/bin/bash
+﻿#!/bin/bash
+
 set -m
 
 mongodb_cmd="mongod --storageEngine $STORAGE_ENGINE"

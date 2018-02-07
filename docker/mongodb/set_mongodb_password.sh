@@ -31,11 +31,11 @@ fi
 echo "=> Done!"
 
 
-echo "======================================================================="
+echo "========================================================================"
 echo "You can now connect to this MongoDB server using:"
 echo ""
 echo "    mongo $DATABASE -u $USER -p $PASS --host <host> --port <port>"
 echo "    mongo admin -u $ADMIN_USER -p $ADMIN_PASS --host <host> --port <port>"
 echo ""
 echo "Please remember to change the above password as soon as possible!"
-echo "======================================================================="
+echo "========================================================================"
