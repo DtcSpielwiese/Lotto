@@ -29,6 +29,8 @@ cd myApp
 2. Installtion der Packages
 ```powershell
 yarn install
+or
+yarn
 ```
 3. Einrichtung WebPack-Server
 ```powershell

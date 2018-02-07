@@ -88,4 +88,4 @@ Beim Starten der Applikation wird ein Jetty HTTP Server gestartet. Der Rest-Serv
 - bzw. parametrisierbar, etwa http://localhost:8080/lotto-service?name=World
 
 ## Docker
-Alle notwendige Infos zum Docker findest Du [hier](doc/docker.md).
+Alle notwendige Infos zum Docker findest Du [hier](docker/README.md).

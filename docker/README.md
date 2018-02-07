@@ -33,6 +33,13 @@ cd Kitematic
 Kitematic.exe
 ```
 
-## MongoDB als Docker-Image
-...
+## MongoDB als Docker-Image/Container
+1. `Docker Quickstart Terminal` starten
+2. Im Terminal ins Docker Verzeichnis wechseln z.B.: `cd /c/Projekte/DTC/Lotto/docker`
+3. `docker-compose up` - Befehl ausführen. Beim erstmaligen Start dieses Befehls wird ein entsprechendes docker-image erstellt und ein docker-container mit dem Namen `lotto-mongo-db` gestartet. In diesem Container wird die MongoDB-Instanz gestartet, welche wiederum beim erstmaligen Start die `lotto-mongo-db` Datenbank anlegt mit zwei Nutzern: Login: `admin`, Passwort: `admin` und Login: `lotto`, Passwort `lotto123`.
+4. Folgende Informationen nutzen, um mit einem Client gegen die gestartete DB zu verbinden - Adresse: `192.168.99.100:27020`, Authentication - Database: `admin`, Login: `admin`, Passwort: `admin`
+5. Das docker-container ist mit der Option `restart: always` eingerichtet, so das beim nächstmaligen Start des `Docker Quickstart Terminals` das entsprechende Container und somit auch die MongoDB automatisch gestartet werden.
+
+![MongoDB](../doc/mongodb.png "MongoDB")
+
 

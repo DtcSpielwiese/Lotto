@@ -1,0 +1,63 @@
+version: '2'
+services:
+  xbav-business-transactions-db:
+      container_name: xbav-business-transactions-db
+      build:
+        context: ./mongodb
+      image: xbav-business-transactions-db:latest
+      ports:
+        - "27020:27017"
+        - "28020:28017"
+      restart: always
+      environment:
+        MONGODB_DATABASE: xbav_business_transactions_db
+        MONGODB_USER: dbuser
+        MONGODB_PASS: sda123
+      volumes:
+      - ./mongo-data:/data/db
+      networks:
+       - sda
+  xbav-business-transactions-service:
+    container_name: xbav-business-transactions-service
+    depends_on:
+      - xbav-business-transactions-db
+    build:
+      context: .
+    image: xbav-business-transactions-service:latest
+    ports:
+      - "8094:8080"
+      - "8095:8081"
+      - "8787:8787"
+    restart: always
+    environment:
+      - MONGO_DB_HOST=xbav-business-transactions-db
+      - MONGO_DB_PORT=27017
+      - MONGO_DB_NAME=xbav_business_transactions_db
+      - MONGO_DB_USER=dbuser
+      - MONGO_DB_PASSWORD=sda123
+      - AUTH_SIGNED=NONE
+      - PUBLIC_KEY_FILE=jwt_public_key/OIDC-prod.cer
+      - BASE_SERVICE_URL=http://localhost:8080
+      - BASE_SERVICE_PATH=businessTransactions
+      - EMAIL_NOTIFICATION_HOST="localhost"
+      - EMAIL_NOTIFICATION_SUBJECT="22"
+      - EMAIL_NOTIFICATION_TO_EMAIL="info@xbav.de"
+      - EMAIL_NOTIFICATION_FROM_EMAIL="info@xbav.de"
+      - KAFKA_HOST="sda-streaming"
+      - KAFKA_PORT="9092"
+      - JAVA_OPTS=-Xdebug -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n
+    networks:
+     - sda
+  xbav-business-transactions-webapp:
+    container_name: xbav-business-transactions-webapp
+    image: xbav-business-transactions-webapp:latest
+    build:
+      context: ./ui
+    ports:
+    - "4281:80"
+    networks:
+    - sda
+networks:
+  sda:
+    external:
+      name: sda.net
