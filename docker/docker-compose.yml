@@ -1,0 +1,16 @@
+version: '3'
+services:
+  lotto-db:
+      container_name: lotto-mongo-db
+      build:
+        context: ./mongodb
+      image: lotto-db:latest
+      ports:
+        - "27020:27017"
+        - "28020:28017"
+      restart: always
+      environment:
+        MONGODB_DATABASE: lotto-mongo-db
+        MONGODB_USER: lotto
+        MONGODB_PASS: lotto123
+
