@@ -28,7 +28,7 @@ Es gelten folgende Regeln für die Arbeit mit GIT:
   - ausführen von `Git Clone`, um vom Remote-Repository ein lokales Abbild einzurichten
     - Auth-Daten zu individuellem Git-Konto
     - URL zum Remote-Repo (individuelles Git-Konto muss eingerichtet - also hinzugefügt und berechtigt - sein)
-    - bei Problemen zuerst prüfen, ob Proxy korrekt in den Git-Settings eingerichet ist (`http://proxy.[Domain].de:3128` - auch für https)
+    - bei Problemen zuerst prüfen, ob Proxy korrekt in den Git-Settings eingerichet ist (etwa `http://proxy.domain.tld:3128` - auch für https)
   - ausführen von `Git Switch`, um vom `master` zum `develop` zu wechseln
 2. Die Entwicklung einer Aufgabe erfolgt immer in einem Feature.
   - der Feature-Branch ist immer von `remotes/origin/develop` abzuleiten
@@ -52,41 +52,40 @@ Folgende Extensions, Packages und Tools sollten installiert werden:
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 * [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint)
 
-### Tools und Packages:
+### Tools und Packages - Diese Installationsanleitung ist mangelhaft.
 * [NodeJS](https://nodejs.org/dist/v9.4.0/node-v9.4.0-x64.msi)
 * [Yarn](https://yarnpkg.com/latest.msi)
-#### Config
+
+#### Konfiguration
 Nach erfolgter Installation der Extensions und Tools bitte folgende Configuration durchführen.
-* Windows 7 ggf. Proxy setzen.
-Terminalbefehle:
-```powershell
-yarn config set proxy http://[serverName]:3128
-yarn config set https-proxy http://[serverName]:3128
-npm config set proxy http://[serverName]:3128
-npm config set https-proxy http://[serverName]:3128
+* Windows 7 ggf. Proxy setzen - Terminalbefehle:
+```cmd
+yarn config set proxy http://proxy.domain.tld:3128
+yarn config set https-proxy http://proxy.domain.tld:3128
+npm config set proxy http://proxy.domain.tld:3128
+npm config set https-proxy http://proxy.domain.tld:3128
 ```
 * Prüfe darauf hin die Dateien `c:\Users\xxxx\.npmrc` und `c:\Users\xxxx\.yarnrc` bzw. `yarn config list`
 
 ### Global Packages:
 Installation der Global Packages in der Solution. Hierfür das Root-Projektverzeichniss im VS-Code öffnen und über das Terminal-Fesnter folgende Befehle ausführen:
-```powershell
+```cmd
  yarn global add tslint
  yarn global add typescript
  yarn global add @angular/cli
  yarn install #als letzer Befehl um die Packages zu installieren
 ```
 
-## [Erstellen und Starten einens neuen Angular Projektes](neuesProjekt.md)
+## [Erstellen und Starten eines neuen Angular Projektes](neuesProjekt.md)
 
 # Backend - Durchstich
-Als Backend-Durchstich dient zur Zeit ein kleines REST Service. Dieses kann zur Zeit wie folgt gestartet werden:
-- im Eclipse: Dazu LottoServices Projekt im Eclipse importieren und dort `LottoApplication` Configuration ausführen
-- im VS Code: Verzeichnis öffnen, `LottoApplication.java` im Editor öffnen `F5` zum Start der Applikation drücken.
+Als Backend-Durchstich dient zur Zeit ein kleiner REST Service. Dieses kann momentan wie folgt gestartet werden:
+- im Eclipse: `LottoServices` Projekt im Eclipse importieren und dort `LottoApplication` Configuration ausführen
+- im VS Code: Verzeichnis öffnen, `LottoApplication.java` im Editor öffnen und `F5` zum Start der Applikation drücken
 
-Beim Starten der Applikation wird ein Jetty HTTP Server gestartet. Das Rest-Service ist unter folgenden URL's erreichbar:
+Beim Starten der Applikation wird ein Jetty HTTP Server gestartet. Der Rest-Service ist unter folgender URL erreichbar:
 - http://localhost:8080/lotto-service
-- oder parametrisierbar, z.B: http://localhost:8080/lotto-service?name=World
+- bzw. parametrisierbar, etwa http://localhost:8080/lotto-service?name=World
 
 ## Docker
 Alle notwendige Infos zum Docker findest Du [hier](doc/docker.md).
-

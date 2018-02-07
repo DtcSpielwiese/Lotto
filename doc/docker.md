@@ -1,14 +1,15 @@
-# Docker 
-## Installation des Dockers unter Windows
+# Docker
 
-1. [Docker Toolbox](https://github.com/docker/toolbox/releases)  für Windows (aktuelle Version: `DockerToolbox-18.01.0-ce.exe`) runterladen und installieren. Sollte sich das Installationsprogramm "aufhängen", dann liegt es am Proxy. Oflline gehen, oder Internetverbindung ohne Proxy aufbauen und die Installation erneut probieren :-)
+## Installation von Docker unter Windows
+
+1. [Docker Toolbox](https://github.com/docker/toolbox/releases) für Windows (aktuelle Version: `DockerToolbox-18.01.0-ce.exe`) runterladen und installieren. Sollte sich das Installationsprogramm "aufhängen", dann liegt es an der Proxy-Konfiguration. Lösungsansatz: Offline gehen, oder Internetverbindung ohne Proxy aufbauen und die Installation erneut probieren.
 
 2. Diesen Schritt nur ausführen, falls Docker Toolbox mit Proxy genutzt wird. Ins Installationsverzeichnis gehen (i.d.R. `C:\Program Files\Docker Toolbox\`) und dort in der Datei `start.sh` ganz am Anfang die Proxy-Einstellungen eintragen:
-```powershell
+```bash
 #!/bin/bash
 
-HTTP_PROXY="http://proxy:3128"
-HTTPS_PROXY="http://proxy:3128"
+HTTP_PROXY="http://proxy.domain.tld:3128"
+HTTPS_PROXY="http://proxy.domain.tld:3128"
 ...
 
 ```
@@ -21,10 +22,10 @@ HTTPS_PROXY="http://proxy:3128"
 
 5. Zur Verwaltung der Docker-Images und der Docker-Container kann auch das `Kitematic` - Tool genutzt werden (Start > Alle Programme > Docker > Kitematic). Sollte Kitematic mit Proxy-Einstellungen genutzt werden, dann bitte im Verzeichnis `C:\Program Files\Docker Toolbox\` folgendes Skript anlegen (`kitematic_proxy.cmd`), welches beim Start auch genutzt werden soll:       
 
-```powershell
-set proxy=http://proxy:3128
-SET HTTP_PROXY=%proxy%
-SET HTTPS_PROXY=%proxy%
+```cmd
+set proxyUrl=http://proxy.domain.tld:3128
+SET HTTP_PROXY=%proxyUrl%
+SET HTTPS_PROXY=%proxyUrl%
 for /f %%i in ('docker-machine.exe ip default') do set DOCKER_HOST=%%i
 SET NO_PROXY=%DOCKER_HOST%
 set DOCKER_HOST=tcp://%DOCKER_HOST%:2376
