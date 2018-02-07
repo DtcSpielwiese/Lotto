@@ -78,6 +78,8 @@ Installation der Global Packages in der Solution. Hierfür das Root-Projektverze
 
 ## [Erstellen und Starten eines neuen Angular Projektes](neuesProjekt.md)
 
+ ## [Cheatsheet der gängistens Angular cli Kommandos](https://cli.angular.io/reference.pdf)
+
 # Backend - Durchstich
 Als Backend-Durchstich dient zur Zeit ein kleiner REST Service. Dieses kann momentan wie folgt gestartet werden:
 - im Eclipse: `LottoServices` Projekt im Eclipse importieren und dort `LottoApplication` Configuration ausführen
