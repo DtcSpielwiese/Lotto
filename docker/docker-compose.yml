@@ -12,5 +12,7 @@ services:
       environment:
         MONGODB_DATABASE: lotto-mongo-db
         MONGODB_USER: lotto
-        MONGODB_PASS: lotto123
+        MONGODB_PASS: lotto123       
+      volumes:
+        - /lotto_db:/data/db         
 
