@@ -23,7 +23,9 @@ Folgendes Bild beschreibt die Arbeitsweise mit GIT in diesem Projekt:
 ## Einrichtung & Konventionen
 Es gelten folgende Regeln für die Arbeit mit GIT:
 1. Jeder Entwickler muss bei sich lokal den `develop` Branch auschecken.
+  - Installieren von https://gitforwindows.org/	
   - Installieren von [GIT - Windows Shell Interface](https://tortoisegit.org/download/)
+	(bei der Installation Pfad zur git.exe angeben... C:\Program Files\Git)
   - Nach der Installation auf der Kommando-Zeile folgenden Befehl ausführen `git config --global core.autocrlf false` -  Dieser Befehl sorgt dafür, dass beim Ein-/Auschecken der Dateien die Zeilenumbrüche nicht automatisch ins Windows-Format überführt werden. Weitere Infos dazu hier: https://git-scm.com/book/de/v1/Git-individuell-einrichten-Git-Konfiguration  
   - Anlegen eines Projektordners
   - Ausführen von `Git Clone`, um vom Remote-Repository ein lokales Abbild einzurichten
