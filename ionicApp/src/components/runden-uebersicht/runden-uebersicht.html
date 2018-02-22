@@ -1,0 +1,19 @@
+<!-- Generated template for the RundenUebersichtComponent component         {{ runde.gezogeneZahlen }}
+ -->
+
+<ion-list *ngIf="daten.runden.length!=0">
+    <ion-item>
+        <ion-label>Werte anzeigen</ion-label>
+        <ion-toggle [(ngModel)]="werteAnzeigen" (ionChange)="wertAnzeigenOnChange()"></ion-toggle>
+    </ion-item>
+    <ion-item *ngFor="let runde of daten.runden; index as i">
+      <h4>{{ i + 1 }}. Runde</h4>
+      <p>
+        <span *ngFor="let zahl of runde.zahlen; last as last">
+          <button (click)="werteAnzeigen = !werteAnzeigen" ion-button round>{{ zahl }}</button>
+          <ion-badge *ngIf="werteAnzeigen">{{ lottoServiceProvider.getWert(zahl) }}</ion-badge>
+        </span>
+      </p>
+      <p item-end>{{ runde.timestamp }}</p>
+    </ion-item>
+</ion-list>

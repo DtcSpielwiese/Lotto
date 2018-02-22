@@ -1,0 +1,71 @@
+<!--
+  Generated template for the AdminPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Einstellungen</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      <b>Definition der Zahlenbereiche
+        <span *ngIf="daten.spielmodus?.anzahlZahlen && daten.spielmodus?.zahlenPool">({{ daten.spielmodus?.anzahlZahlen }} aus {{ daten.spielmodus?.zahlenPool }})</span>
+      </b>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating>Anzahl Zahlen, z.B.
+          <b>6</b>
+        </ion-label>
+        <ion-input type="number" clearInput="true" [(ngModel)]="daten.spielmodus.anzahlZahlen" min="1" max="10"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Wertebereich (aus), z.B.
+          <b>49</b>
+        </ion-label>
+        <ion-input (change)="zahlenPoolChanged()" [(ngModel)]="daten.spielmodus.zahlenPool" min="1" max="100" type="number"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+      <ion-card-header>
+        <b>Mapping der Zahlen</b>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+            <ion-item *ngFor="let zm of daten.zahlenMappings; index as i">
+                <ion-input disabled="true" placeholder="Zahl" [(ngModel)]="zm.zahl" item-start type="number" min="1" [max]="daten.spielmodus.anzahlZahlen"></ion-input>
+                <ion-input placeholder="Wert" [(ngModel)]="zm.wert" item-end type="text"></ion-input>
+              </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <div style="padding:10px">
+        <button (click)="speichern()"   ion-button large="false" round="true" full="true">
+            Speichern
+        </button>
+      </div>
+
+    <ion-card *ngIf="daten.runden.length > 0">
+        <ion-card-header>
+          <b>Gespielte Runden</b>
+        </ion-card-header>
+        <ion-card-content>
+            <runden-uebersicht></runden-uebersicht>
+            <button (click)="lottoServiceProvider.rundenVersucheLoeschen()"  ion-button large="false" round="true" full="true">
+                Ergebnisse löschen
+            </button>
+        </ion-card-content>
+      </ion-card>
+</ion-content>

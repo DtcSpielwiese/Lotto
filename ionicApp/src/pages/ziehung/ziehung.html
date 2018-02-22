@@ -1,0 +1,29 @@
+<!--
+  Generated template for the ZiehungPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Ziehung der Lotto-Zahlen</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  Willkommen zur Ziehung <b>{{ daten.spielmodus?.anzahlZahlen }} aus {{ daten.spielmodus?.zahlenPool }}</b>.
+  Es stehen Ihnen maximal <b>{{ daten.spielmodus?.maxAnzahlVersuche }}</b> Versuche zur Verfügung.
+
+
+  <button [disabled]="!lottoServiceProvider.versuchMoeglich()" (click)="lottoServiceProvider.versuchNotieren()" ion-button large="false" round="true" full="true">
+      {{ lottoServiceProvider.anzahlVersucheOderMax() }}. Versuch
+  </button>
+
+  <br>
+  <runden-uebersicht></runden-uebersicht>
+
+</ion-content>
