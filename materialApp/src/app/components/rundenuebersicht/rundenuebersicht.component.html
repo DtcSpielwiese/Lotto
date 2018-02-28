@@ -1,0 +1,28 @@
+<!-- Generated template for the RundenUebersichtComponent component         {{ runde.gezogeneZahlen }}
+ -->
+<mat-card>
+  <mat-card-title>
+    <mat-slide-toggle [(ngModel)]="showValue">Werte anzeigen</mat-slide-toggle>
+  </mat-card-title>
+  <mat-card-content>
+<mat-grid-list cols="3" *ngIf="daten.runden.length!=0"  rowHeight="3:1">
+
+  <div *ngFor="let runde of daten.runden; index as i">
+    <mat-grid-tile><h4>{{ i + 1 }}. Runde: </h4></mat-grid-tile>
+    <mat-grid-tile>
+      <div *ngFor="let zahl of runde.zahlen; last as last" width="100%">
+     <button  mat-mini-fab color="accent" (click)="werteAnzeigen = !werteAnzeigen">
+       {{ zahl }}
+     </button>
+       <mat-chip-list>
+       <mat-chip *ngIf="showValue"  selected="true">{{ lottoService.getText(zahl) }}</mat-chip>
+     </mat-chip-list>
+
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>{{ runde.timestamp }}</mat-grid-tile>
+  </div>
+</mat-grid-list>
+  </mat-card-content>
+</mat-card>
+

@@ -1,0 +1,68 @@
+<div class="padding-cards">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Definition der zu ziehenden Zahlen</mat-card-title>
+      <mat-card-subtitle>{{daten.spielmodus.anzahlZahlen}} aus {{daten.spielmodus.zahlenPool}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+    <mat-form-field>
+    <input matInput type="number" [(ngModel)]="daten.spielmodus.anzahlZahlen" placeholder="anzahl Zahlen">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" [(ngModel)]="daten.spielmodus.zahlenPool" placeholder="Zahlenpool">
+    </mat-form-field>
+    </mat-card-content>
+    <mat-card-footer></mat-card-footer>
+  </mat-card>
+</div>
+<div class="padding-cards">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Anlage der Zahl - Werte Paare</mat-card-title>
+        <mat-card-subtitle>hier können Sie Ihren Zahlen Texte zuordnen</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-table #table [dataSource]="dataSource">
+          <!-- Zahl Column -->
+          <ng-container matColumnDef="zahl">
+            <mat-header-cell *matHeaderCellDef> Zahl </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.zahl}} </mat-cell>
+          </ng-container>
+          <!-- Wert Column -->
+          <ng-container matColumnDef="wert">
+            <mat-header-cell *matHeaderCellDef> Wert </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="Wert" [value]="element.wert" (input)="editField('wert', $event.target.value, element)">
+              </mat-form-field>
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </mat-card-content>
+      <mat-card-footer>
+        <button mat-button (click)="openSnackBar('Erfolgreich gespeichert!!')">Speichern</button>
+      </mat-card-footer>
+  </mat-card>
+</div>
+<div class="padding-cards" *ngIf="daten.runden.length > 0">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Gespielte Runden</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <app-rundenuebersicht></app-rundenuebersicht>
+    </mat-card-content>
+    <mat-card-footer>
+      <button (click)="lottoService.rundenVersucheLoeschen()"  mat-button>
+        Ergebnisse löschen
+      </button>
+    </mat-card-footer>
+  </mat-card>
+</div>
+

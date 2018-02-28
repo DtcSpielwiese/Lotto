@@ -1,0 +1,8 @@
+<h1>Zahlenziehungs Seite</h1>
+<p>
+  Auf dieser Seite könnnen sie {{ daten.spielmodus.anzahlZahlen }} aus {{ daten.spielmodus.zahlenPool }} spielen.
+  Wenn sie auf "Zahlen ziehen klicken werden pro runde {{ daten.spielmodus.anzahlZahlen }} zahlen gezogen. Dies kann so oft wiederholt werden bis der Zahlenpool {{ daten.spielmodus.anzahlZahlen }} erschöpft ist."
+</p>
+<button mat-raised-button color="accent" [disabled]="!lottoService.versuchMoeglich()" (click)="lottoService.versuchNotieren()">{{ lottoService.anzahlVersucheOderMax() }}. Versuch</button>
+
+<app-rundenuebersicht></app-rundenuebersicht>

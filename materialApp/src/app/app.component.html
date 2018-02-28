@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-content>
+    <h2 class="example-h2">Zahlenziehung mit Material</h2>
+    <mat-tab-group class="tab-group">
+      <mat-tab label="Home">
+        <ng-template mat-tab-label>
+          <mat-icon>home</mat-icon>
+        </ng-template>
+        <div class="tab-content">
+          <app-ziehung></app-ziehung>
+        </div>
+      </mat-tab>
+      <mat-tab label="Admin">
+        <ng-template mat-tab-label>
+          <mat-icon>settings</mat-icon>
+        </ng-template>
+        <div class="tab-content">
+          <app-admin></app-admin>
+        </div>
+      </mat-tab>
+      <mat-tab label="Historie" disabled>
+        <ng-template mat-tab-label>
+          <mat-icon>history</mat-icon>
+        </ng-template>
+        No content
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
