@@ -4,6 +4,19 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+     {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Launch Chrome",
+        "url": "http://localhost:8100",
+        "webRoot": "${workspaceFolder}"
+    },
+    {
+        "type": "node",
+        "request": "attach",
+        "name": "Attach IONIC",
+        "port": 8100
+    },
         {
             "type": "java",
             "name": "Debug (Launch)-LottoApplication<LottoServices>",
@@ -14,13 +27,6 @@
             "mainClass": "de.msg.gbn.dtc.lotto.dropwizard.LottoApplication",
             "projectName": "LottoServices",
             "args": "server dropwizard.yml"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Attach)",
-            "request": "attach",
-            "hostName": "localhost",
-            "port": 0
         }
     ]
 }
