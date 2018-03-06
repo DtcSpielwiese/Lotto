@@ -1,3 +1,12 @@
 /.metadata/
 /helloWorld/node_modules
 /helloWorld/dist
+PrimeNgApp/package-lock.json
+materialApp/yarn-error.log
+materialApp/yarn.lock
+.idea/Lotto.iml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+PrimeNgApp/yarn.lock
+PrimeNgApp/yarn.lock
