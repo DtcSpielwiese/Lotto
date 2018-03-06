@@ -1,3 +1,5 @@
 /.metadata/
 /helloWorld/node_modules
 /helloWorld/dist
+ionicApp/node_modules/
+materialApp/yarn-error.log
