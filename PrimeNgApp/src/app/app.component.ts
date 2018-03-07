@@ -1,3 +1,4 @@
+declare var require : any;
 import {Component, OnInit} from '@angular/core';
 import {SelectItem} from 'primeng/api';
 
@@ -9,6 +10,7 @@ import {SelectItem} from 'primeng/api';
 export class AppComponent implements OnInit {
   themes: SelectItem[];
   selectedTheme: string;
+
 
   ngOnInit(): void {
     this.selectedTheme = window.localStorage.getItem('theme') == null ? 'bootstrap' : window.localStorage.getItem('theme');
