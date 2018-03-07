@@ -1,0 +1,75 @@
+<!--
+  Generated template for the CountryDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+
+      {{country.translations["de"]}}
+
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{country.flag}}">
+      </ion-avatar>
+      <h2>{{country.name}}</h2>
+      <p>{{country.region}} / {{country.subregion}}</p>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row *ngIf="country.capital" align-items-center>
+        <ion-col col-4>Hauptstadt: </ion-col>
+        <ion-col col-8>{{country.capital}}</ion-col>
+      </ion-row>
+      <ion-row align-items-center>
+        <ion-col col-4>Im Original: </ion-col>
+        <ion-col col-8>{{country.nativeName}}</ion-col>
+      </ion-row>
+      <ion-row align-items-center>
+        <ion-col col-4>ISO-Code: </ion-col>
+        <ion-col col-8>{{country.alpha3Code}}</ion-col>
+      </ion-row>
+      <ion-row align-items-center>
+        <ion-col col-4>Top-Level Domain(s): </ion-col>
+        <ion-col col-8>{{country.topLevelDomain.join(", ")}}
+        </ion-col>
+      </ion-row>
+      <ion-row align-items-center>
+        <ion-col col-4>Zeit Zone(n): </ion-col>
+        <ion-col col-8>{{country.timezones.join(", ")}}
+        </ion-col>
+      </ion-row>
+      <ion-row align-items-center>
+        <ion-col col-4>Sprache(n): </ion-col>
+        <ion-col col-8>{{ sprachen }}
+        </ion-col>
+      </ion-row>
+      <ion-row align-items-center>
+        <ion-col col-4>Währung(en): </ion-col>
+        <ion-col col-8>{{ waehrungen }}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="blocs" align-items-center>
+        <ion-col col-4>Blöcke: </ion-col>
+        <ion-col col-8>{{ blocs }}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="country.borders && country.borders.length>0" align-items-center>
+        <ion-col col-4>Grenzt an: </ion-col>
+        <ion-col col-8>
+          <button (click)="goDetail(code)" ion-button clear *ngFor="let code of country.borders">{{code}}</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

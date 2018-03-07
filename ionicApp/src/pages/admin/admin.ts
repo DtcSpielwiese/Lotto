@@ -1,6 +1,6 @@
 import { LottoServiceProvider } from './../../providers/lotto-service';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { AdminDto } from '../../model/adminDto';
 
 /**
@@ -10,7 +10,6 @@ import { AdminDto } from '../../model/adminDto';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-admin',
   templateUrl: 'admin.html',
@@ -24,10 +23,6 @@ export class AdminPage implements OnInit {
 
   ngOnInit() {
     this.daten = this.lottoServiceProvider.daten;
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminPage');
   }
 
   zahlenPoolChanged(){

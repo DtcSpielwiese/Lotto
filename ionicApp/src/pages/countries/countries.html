@@ -1,0 +1,33 @@
+<!--
+  Generated template for the CountriesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Länderliste</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-searchbar [(ngModel)]="terms"></ion-searchbar>
+  <ion-list>
+    <ion-item (click)="goDetail(c)" *ngFor="let c of countries_paging | search : terms">
+      <ion-avatar item-left>
+        <img src="{{c.flag}}">
+      </ion-avatar>
+      <h2>{{c.translations["de"]}}</h2>
+      <p>Hauptstadt: {{c.capital}}, Region: {{c.region}}</p>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Lade weitere Länder..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
