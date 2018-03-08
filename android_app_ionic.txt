@@ -1,0 +1,36 @@
+Android - APK erstellen - https://ionicframework.com/docs/intro/deploying/
+
+Voraussetzungen:
+
+ - JAVA 1.8 installieren: "JAVA_HOME" als Umgebunsvariable muss gesetzt sein.
+ - Android Studio installieren https://developer.android.com/studio/index.html . 
+ - "ANDROID_HOME" Umgebungsvariable auf "c:\Users\<DEIN_USER>\AppData\Local\Android\Sdk" setzen
+ - Im Android Studio auf die Updates prüfen: https://developer.android.com/studio/intro/update.html 
+ 
+APP Erstellen
+
+ - ggf. Proxy setzen:
+   SET HTTP_PROXY="http://proxy.msg.de:3128"
+   SET HTTPS_PROXY="http://proxy.msg.de:3128"
+   SET IONIC_HTTP_PROXY="http://proxy.msg.de:3128"
+ 
+ - APP für PROD erstellen:
+   ionic cordova build android --prod --release
+     - Sollten Probleme auftauchen, evtl. diese Seite checken: https://stackoverflow.com/questions/31190355/ionic-build-android-error-no-installed-build-tools-found-please-install-the
+	 - Speziell dort 
+	    sdkmanager "platform-tools" "platforms;android-26" und 
+		sdkmanager "build-tools;27.0.3" ausführen!
+
+   -->Die unsignierte APP wurde in platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk erstellt
+	
+APP signieren:
+ - Einmalig den privaten Schlüssel erzeigen "my-release-key.jks"
+   keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
+   Als Passwort, z.B.: "12345678", Rest - (CN=Eugen Wagner, OU=GBN-DTC, O=msg systems ag, L=Chemnitz, ST=Sachsen, C=DE)
+   
+ - Die APK signieren:
+   jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk my-alias 
+ 
+ - ZIP-Optimierung & Verifizierung der APK:
+   c:\Users\wagnere\AppData\Local\Android\Sdk\build-tools\27.0.3\zipalign -v 4 platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk LottoApp.apk
+   c:\Users\wagnere\AppData\Local\Android\Sdk\build-tools\27.0.3\apksigner verify LottoApp.apk
