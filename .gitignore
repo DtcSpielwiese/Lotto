@@ -13,3 +13,6 @@ materialApp/yarn.lock
 PrimeNgApp/yarn.lock
 PrimeNgApp/yarn.lock
 
+ionicApp/plugins
+ionicApp/www
+.idea
