@@ -14,6 +14,9 @@ Mit diesem Beispielprojekt sollen folgende Technologien näher angeschaut werden
 * Openshift
 * Dropwizard
 * NoSQL (MongoDb)
+* Maria DB
+* TEST
+* TEST 2
 
 # Versionsverwaltung - Umgang mit GIT
 Folgendes Bild beschreibt die Arbeitsweise mit GIT in diesem Projekt:
