@@ -1,0 +1,91 @@
+<h5 class="dark-grey-text">Krankenversicherung vergleichen</h5>
+
+<form class="pt-4">
+  <div class="row">
+    <div class="col-md-4">
+
+      <div class="md-form">
+        <input mdbActive placeholder="TT.MM.JJJJ" type="text" id="form58" class="form-control">
+        <label for="form58">Geburtsdatum:</label>
+      </div>
+
+    </div>
+    <div class="col-md-8">
+
+      <div class="md-form">
+        <input mdbActive placeholder="XXXX" type="text" id="form59" class="form-control">
+        <label for="form59">PLZ:</label>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-4">
+      Produktauswahl:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <input mdbDeepDirective type="checkbox" id="checkbox1">
+        <label for="checkbox1">Grundversicherung</label>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <input mdbDeepDirective type="checkbox" id="checkbox2">
+        <label for="checkbox2">Zusatzversicherung</label>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <input mdbDeepDirective type="checkbox" id="checkbox3">
+        <label for="checkbox3">Unfalldeckung</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      Franchise:
+    </div>
+    <div class="col-md-8">
+      Versicherungsmodell:
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+
+      <div class="btn-group" dropdown>
+        <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light" mdbRippleRadius>
+          {{selectedFranchise}}
+        </button>
+
+        <div class="dropdown-menu dropdown-primary">
+          <a (click)="selectedFranchise='300'"  class="dropdown-item" href="#">300</a>
+          <a (click)="selectedFranchise='500'" class="dropdown-item" href="#">500</a>
+          <div class="divider dropdown-divider"></div>
+          <a (click)="selectedFranchise='1000'" class="dropdown-item" href="#">1000</a>
+          <a (click)="selectedFranchise='1500'" class="dropdown-item" href="#">1500</a>
+          <div class="divider dropdown-divider"></div>
+          <a (click)="selectedFranchise='2000'" class="dropdown-item" href="#">2000</a>
+          <a (click)="selectedFranchise='2500'" class="dropdown-item" href="#">2500</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-8">
+      <select class="mdb-select">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+      </select>
+      <label>Example label</label>
+    </div>
+  </div>
+
+</form>

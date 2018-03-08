@@ -1,0 +1,37 @@
+<div style="height: 300px" class="container">
+  Bla Bla
+  <div class="row">
+    <div class="col-1">
+
+      <div (click)="activeTab = 1"  [class.myActiveTab]="activeTab==1" [class.myInActiveTab]="activeTab!=1" class="row">
+        <div class="col view overlay hm-brown-slight"><i class="material-icons myIcon">info</i>
+          <div class="mask"></div>
+        </div>
+      </div>
+      <div (click)="activeTab = 2" [class.myActiveTab]="activeTab==2" [class.myInActiveTab]="activeTab!=2" class="row">
+        <div class="col view overlay hm-brown-slight"><i class="material-icons myIcon">healing</i>
+          <div class="mask"></div>
+        </div>
+      </div>
+      <div (click)="activeTab = 3" [class.myActiveTab]="activeTab==3" [class.myInActiveTab]="activeTab!=3" class="row">
+        <div class="col view overlay hm-brown-slight"><i class="material-icons myIcon">directions_car</i>
+          <div class="mask"></div>
+        </div>
+      </div>
+      <div (click)="activeTab = 4" [class.myActiveTab]="activeTab==4" [class.myInActiveTab]="activeTab!=4" class="row">
+        <div class="col view overlay hm-brown-slight"><i class="fa fa-institution myIcon" aria-hidden="true"></i>
+          <div class="mask"></div>
+        </div>
+      </div>
+      <div class="row pt-4">
+        <div class="col">&nbsp;</div>
+      </div>
+    </div>
+    <div class="col-11 myActiveTab">
+      <app-vr-info *ngIf="activeTab==1"></app-vr-info>
+      <app-vr-kranken *ngIf="activeTab==2"></app-vr-kranken>
+      <app-vr-auto *ngIf="activeTab==3"></app-vr-auto>
+      <app-vr-rechtsschutz *ngIf="activeTab==4"></app-vr-rechtsschutz>
+    </div>
+  </div>
+</div>
