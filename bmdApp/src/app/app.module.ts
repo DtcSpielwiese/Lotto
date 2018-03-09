@@ -9,6 +9,11 @@ import { VrInfoComponent } from './vr-info/vr-info.component';
 import { VrKrankenComponent } from './vr-kranken/vr-kranken.component';
 import { VrAutoComponent } from './vr-auto/vr-auto.component';
 import { VrRechtsschutzComponent } from './vr-rechtsschutz/vr-rechtsschutz.component';
+import { PrimengTestComponent } from './primeng-test/primeng-test.component';
+import {FormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AppRoutingModule} from "./app-routing.module";
+import {PrimeNgModul} from "./prime-ng.modul";
 
 
 @NgModule({
@@ -18,10 +23,15 @@ import { VrRechtsschutzComponent } from './vr-rechtsschutz/vr-rechtsschutz.compo
     VrInfoComponent,
     VrKrankenComponent,
     VrAutoComponent,
-    VrRechtsschutzComponent
+    VrRechtsschutzComponent,
+    PrimengTestComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    AppRoutingModule,
+    PrimeNgModul,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
