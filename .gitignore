@@ -18,3 +18,5 @@ ionicApp/www
 .idea
 ionicApp/.sourcemaps
 ionicApp/platforms
+/telerikApp/yarn.lock
+/telerikApp/package-lock.json
