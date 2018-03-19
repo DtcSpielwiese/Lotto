@@ -14,5 +14,5 @@ services:
         MONGODB_USER: lotto
         MONGODB_PASS: lotto123       
       volumes:
-        - /lotto_db:/data/db         
+        - /Users/Shared/lotto_db:/data/db         
 
