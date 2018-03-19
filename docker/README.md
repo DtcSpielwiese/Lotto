@@ -42,4 +42,45 @@ Kitematic.exe
 
 ![MongoDB](../doc/mongodb.png "MongoDB")
 
+Zm Zugriff auf die Datenbank bietet sich das Tool Robo 3T an - https://robomongo.org/download. 
 
+## Import von CSV-Daten in MongoDB
+csv-Daten können über den Befehl mongoimport (https://docs.mongodb.com/manual/reference/program/mongoimport) importiert werden.
+Dazu ist das csv-File im Docker-Ordner (dort wo auch das Dockerfile liegt) bereitzustellen. Außerdem muss die Datei im Dockerfile registriert werden, zum Beispiel so:
+
+```bash
+
+ADD Praemien_CH.csv /Praemien_CH.csv
+
+```
+
+Wichtig ist, dass im csv als Trenner nur "," verwendet werden. In der ersten Zeile sind die Bezeichner der Spalten anzugeben. 
+Hier ein Beispiel für die ersten drei Zeilen des csv:
+
+```
+Versicherer,Kanton,Hoheitsgebiet,Geschäftsjahr,Erhebungsjahr,Region,Altersklasse,Unfalleinschluss,Tarif,Tariftyp,Altersuntergruppe,Franchisestufe,Franchise,Prämie,isBaseP,isBaseF,Tarifbezeichnung
+0008,AG,CH,2018,2017,PR-REG CH0,AKL-KIN,MIT-UNF,01_016_01200,TAR-HMO,K1,FRAST1,FRA-0,78.5,0,1,Centramed Zug
+0008,AG,CH,2018,2017,PR-REG CH0,AKL-KIN,MIT-UNF,01_016_01200,TAR-HMO,K1,FRAST2,FRA-100,72.7,0,0,Centramed Zug
+```
+
+Der Importvorgang wird über eine Docker-Konsole mit folgendem Befehl gestartet:
+
+```
+mongoimport --db lotto-mongo-db --collection neos --username lotto --password "lotto123" --type csv --headerline
+```
+oder um sicherzustellen, dass keine Kommas im csv sind (vorher die Kommas in Zahlen durch Punkte ersetzen): 
+
+```
+tr "," "." < Praemien_CH.csv | tr ";" "," < Praemien_CH.csv | mongoimport --db lotto-mongo-db --collection neos --username lotto --password "lotto123" --type csv --headerline
+```
+
+Sollte die Collection (im Beispiel "neos") noch nicht vorhanden sein, so legt Mongo diese automatisch an. 
+Über Robo 3T lassen sích die Daten zur Kontrolle selektieren, zum Beispiel mit:
+
+```
+db.getCollection('neos').find()
+```
+oder mit Parameter:
+```
+db.getCollection('neos').find({Kanton: 'AG', Franchisestufe:'FRAST5', Versicherer:8, Altersklasse:'AKL-ERW', Unfalleinschluss:'MIT-UNF'})
+```

@@ -25,6 +25,7 @@ if [ "$DATABASE" != "admin" ]; then
 use $DATABASE
 db.createDB.save( {status:'OK'} )
 db.createUser({user: '$USER', pwd: '$PASS', roles:[{role:'dbOwner',db:'$DATABASE'}]})
+
 EOF
 fi
 

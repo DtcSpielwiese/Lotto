@@ -23,4 +23,6 @@ if [ ! -f /data/db/.mongodb_password_set ]; then
 	touch /data/db/.mongodb_password_set
 fi
 
+/mongodb_import_data.sh
+
 fg
