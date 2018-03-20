@@ -84,3 +84,20 @@ oder mit Parameter:
 ```
 db.getCollection('neos').find({Kanton: 'AG', Franchisestufe:'FRAST5', Versicherer:8, Altersklasse:'AKL-ERW', Unfalleinschluss:'MIT-UNF'})
 ```
+
+Im aktuellen Projekt wird der Import der Daten automatisch beim Start des Docker-Containers ausgeführt. 
+Das heißt beim Start werden die DAten immer gelöscht und komplett neu importiert. Es werden 4 Collections angelegt:
+- neo_preamien
+- neo_regionen
+- neo_wertebereiche
+- neo_versicherungen
+
+Dafür werden im Rootverzeichnis des Dockercontainers vier csv-Dateien erwartet:
+
+- Praemien_CH.csv
+- Wertebereiche_CH.csv
+- Regionen_CH.csv
+- Versicherungen_CH.csv
+
+ACHTUNG: Bei Änderungen in den csv-Dateien muss vor dem Starten des Docker-Containers (docker-compose up) immer auch ein docker-compose build --force-rm ausgeführt werden.
+ 
